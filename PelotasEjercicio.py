@@ -27,12 +27,12 @@ def calcularPos(ball):
         ball['velocity'][0] *= -1
     if ball['position'][1] - ball['radius'] <= 0 or ball['position'][1] + ball['radius'] >= height:
         ball['velocity'][1] *= -1
-    for other_ball in pelotas:
-        if other_ball != ball:
-            distance = ((other_ball['position'][0] - ball['position'][0]) ** 2 +
-                        (other_ball['position'][1] - ball['position'][1]) ** 2) ** 0.5
-            if distance <= ball['radius'] + other_ball['radius']:
-                if ball['radius'] > other_ball['radius'] / 2:
+    for otrasP in pelotas:
+        if otrasP != ball:
+            distancia = ((otrasP['position'][0] - ball['position'][0]) ** 2 +
+                        (otrasP['position'][1] - ball['position'][1]) ** 2) ** 0.5
+            if distancia <= ball['radius'] + otrasP['radius']:
+                if ball['radius'] > otrasP['radius'] / 2:
                     ball['radius'] /= 2
                 else:
                     pelotas.remove(ball)
@@ -55,3 +55,4 @@ while running:
     clock.tick(60)
 
 pygame.quit()
+
